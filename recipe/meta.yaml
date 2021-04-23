@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jtv/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 73b2f0a0af786d6039291b60250bee577bc7ea7c10b7550ec37da448940848b7
+  sha256: 86921fdb0fe54495a79d5af2c96f2c771098c31e9b352d0834230fd2799ad362
 
 build:
   number: 0
