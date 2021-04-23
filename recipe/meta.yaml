@@ -1,5 +1,5 @@
 {% set name = "libpqxx" %}
-{% set version = "7.4.1" %}
+{% set version = "6.4.5" %}
 
 package:
   name: {{ name }}
