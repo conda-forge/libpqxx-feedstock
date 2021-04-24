@@ -18,7 +18,6 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - vs2019_win-64  # [win]
     - cmake
     - ninja
   host:
