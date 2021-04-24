@@ -1,5 +1,5 @@
 {% set name = "libpqxx" %}
-{% set version = "7.4.1" %}
+{% set version = "7.5.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jtv/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 73b2f0a0af786d6039291b60250bee577bc7ea7c10b7550ec37da448940848b7
+  sha256: 62744ddba939880675f1e76275c98c1653f60b0e725f013299f4a437351bf2b0
 
 build:
   number: 0
