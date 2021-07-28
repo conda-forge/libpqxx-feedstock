@@ -1,11 +1,12 @@
 # Project overrides
-# Needed to avoid this error:
+# Needed to avoid these errors:
 # ../test/test26.cxx:47:21: error: 'value' is unavailable: introduced in macOS 10.13
+# include/pqxx/blob.hxx:242:60: error: 'path' is unavailable: introduced in macOS 10.15
 
 macos_min_version:             # [osx and x86_64]
-  - 10.13                      # [osx and x86_64]
+  - 10.15                      # [osx and x86_64]
 MACOSX_DEPLOYMENT_TARGET:      # [osx and x86_64]
-  - 10.13                      # [osx and x86_64]
+  - 10.15                      # [osx and x86_64]
 
 c_compiler:
   - vs2019                     # [win]
