@@ -1,11 +1,11 @@
-About libpqxx
-=============
+About libpqxx-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libpqxx-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jtv/libpqxx
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libpqxx-feedstock/blob/main/LICENSE.txt)
 
 Summary: Welcome to libpqxx, the C++ API to the PostgreSQL database management system.
 
