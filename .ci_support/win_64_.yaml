@@ -7,6 +7,6 @@ channel_targets:
 cxx_compiler:
 - vs2019
 libpq:
-- '15'
+- '16'
 target_platform:
 - win-64
