@@ -1,5 +1,5 @@
 {% set name = "libpqxx" %}
-{% set version = "7.9.0" %}
+{% set version = "7.9.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jtv/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: a1fafd5f6455f6c66241fca1f35f5cb603251580b99f9a0cf1b5d0a586006f16
+  sha256: 4fafd63009b1d6c2b64b8c184c04ae4d1f7aa99d8585154832d28012bae5b0b6
 
 build:
   number: 0
@@ -18,12 +18,12 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - cmake
     - ninja
   host:
     - libpq
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:
