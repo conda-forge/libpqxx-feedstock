@@ -198,4 +198,5 @@ Feedstock Maintainers
 =====================
 
 * [@Tobias-Fischer](https://github.com/Tobias-Fischer/)
+* [@eunos-1128](https://github.com/eunos-1128/)
 
