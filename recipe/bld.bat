@@ -1,7 +1,8 @@
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe
-set CL=/D_ITERATOR_DEBUG_LEVEL=0
+
+sed -i "s/v.begin()/v.data()/g" test/unit/test_zview.cxx
 
 mkdir build
 cd build
