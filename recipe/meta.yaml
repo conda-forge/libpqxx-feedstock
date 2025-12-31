@@ -21,7 +21,6 @@ requirements:
     - {{ stdlib("c") }}
     - cmake
     - ninja
-    - m2-sed  # [win]
   host:
     - libpq
   run:
