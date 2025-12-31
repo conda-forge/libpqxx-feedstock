@@ -1,6 +1,7 @@
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe
+set CL=/D_ITERATOR_DEBUG_LEVEL=0
 
 mkdir build
 cd build
