@@ -2,8 +2,6 @@
 set CC=cl.exe
 set CXX=cl.exe
 
-sed -i "s/v.begin()/v.data()/g" test/unit/test_zview.cxx
-
 mkdir build
 cd build
 
@@ -13,6 +11,8 @@ cmake ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DBUILD_SHARED_LIBS=ON ^
     -DCMAKE_CXX_STANDARD=20 ^
+    -DBUILD_TESTING=OFF ^
+    -DPQXX_BUILD_TEST=OFF ^
     %SRC_DIR%
 if errorlevel 1 exit 1
 
