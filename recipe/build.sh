@@ -9,7 +9,10 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_EXE_LINKER_FLAGS="-pthread" \
-      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON \
+      -DPostgreSQL_ROOT=$PREFIX \
+      -DPostgreSQL_LIBRARY=$PREFIX/lib/libpq${SHLIB_EXT} \
+      -DPostgreSQL_INCLUDE_DIR=$PREFIX/include
 
 cmake --build . --config Release
 cmake --build . --config Release --target install
