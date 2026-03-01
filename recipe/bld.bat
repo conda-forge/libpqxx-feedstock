@@ -1,5 +1,8 @@
 @echo on
 
+:: Activate the vc143 (VS2022) environment
+call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.3
+
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe
