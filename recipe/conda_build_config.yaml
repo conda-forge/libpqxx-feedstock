@@ -6,8 +6,3 @@
 # include/pqxx/result.hxx: error: 'to_chars' is unavailable: introduced in macOS 13.3
 c_stdlib_version:              # [osx]
   - 14.0                       # [osx]
-c_compiler:                    # [win]
-  - vs2026                     # [win]
-cxx_compiler:                  # [win]
-  - vs2026                     # [win]
-  
