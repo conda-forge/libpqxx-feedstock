@@ -2,7 +2,7 @@
 # Needed to avoid these errors:
 # ../test/test26.cxx:47:21: error: 'value' is unavailable: introduced in macOS 10.13
 # include/pqxx/blob.hxx:242:60: error: 'path' is unavailable: introduced in macOS 10.15
-# std::format uses std::to_chars (floating point), which is unavailable below macOS 13.4:
-# include/pqxx/result.hxx: error: 'to_chars' is unavailable: introduced in macOS 13.4
+# std::format uses std::to_chars (floating point), which is unavailable below macOS 13.3:
+# include/pqxx/result.hxx: error: 'to_chars' is unavailable: introduced in macOS 13.3
 c_stdlib_version:              # [osx and x86_64]
-  - 13.4                       # [osx and x86_64]
+  - 14.0                       # [osx and x86_64]
