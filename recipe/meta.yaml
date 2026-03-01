@@ -20,7 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cmake
-    - ninja
+    - ninja  # [unix]
   host:
     - libpq
   run:
