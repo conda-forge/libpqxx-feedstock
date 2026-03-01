@@ -5,12 +5,15 @@ set CXX=cl.exe
 mkdir build
 cd build
 
-cmake ^
-    -G "Ninja" ^
+cmake -G "Ninja" ^
+    %CMAKE_ARGS% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DBUILD_SHARED_LIBS=ON ^
     -DCMAKE_CXX_STANDARD=20 ^
+    -DPostgreSQL_ROOT=%LIBRARY_PREFIX% ^
+    -DPostgreSQL_LIBRARY=%LIBRARY_PREFIX%\lib\libpq.lib ^
+    -DPostgreSQL_INCLUDE_DIR=%LIBRARY_PREFIX%\include ^
     %SRC_DIR%
 if errorlevel 1 exit 1
 
