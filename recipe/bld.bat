@@ -1,13 +1,11 @@
 @echo on
 
-:: Activate the vc143 (VS2022) environment
-call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64 -vcvars_ver=14.3
-
 :: MSVC is preferred.
 set CC=cl.exe
 set CXX=cl.exe
 
-cmake -S . -B build -G "Ninja" ^
+:: Activate the vc143 (VS2022) environment
+cmake -S . -B build -T v143 ^
     %CMAKE_ARGS% ^
     -DBUILD_SHARED_LIBS=ON
 if errorlevel 1 exit 1
