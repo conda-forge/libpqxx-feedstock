@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '13.3'
+- '13.4'
 MACOSX_SDK_VERSION:
-- '13.3'
+- '13.4'
 c_compiler:
 - clang
 c_compiler_version:
@@ -9,7 +9,7 @@ c_compiler_version:
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '13.3'
+- '13.4'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -22,8 +22,6 @@ libpq:
 - '18'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '13.3'
 target_platform:
 - osx-64
 zip_keys:
