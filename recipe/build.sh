@@ -8,6 +8,7 @@ cmake ${CMAKE_ARGS} .. \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DCMAKE_EXE_LINKER_FLAGS="-pthread" \
       -DBUILD_SHARED_LIBS=ON
 
 cmake --build . --config Release
