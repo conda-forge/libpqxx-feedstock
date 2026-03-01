@@ -4,8 +4,7 @@
 set CC=cl.exe
 set CXX=cl.exe
 
-:: Activate the vc143 (VS2022) environment
-cmake -S . -B build -T v143 ^
+cmake -S . -B build -G Ninja ^
     %CMAKE_ARGS% ^
     -DBUILD_SHARED_LIBS=ON
 if errorlevel 1 exit 1
