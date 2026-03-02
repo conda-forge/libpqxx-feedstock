@@ -1,9 +1,5 @@
 @echo on
 
-:: MSVC is preferred.
-set CC=cl.exe
-set CXX=cl.exe
-
 cmake -S . -B build -G Ninja ^
     %CMAKE_ARGS% ^
     -DCMAKE_CXX_STANDARD=20 ^
