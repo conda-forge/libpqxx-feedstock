@@ -1,5 +1,5 @@
 diff --git a/include/pqxx/strconv.hxx b/include/pqxx/strconv.hxx
-index a033a7f0..29526f95 100644
+index a033a7f0..8c8b958e 100644
 --- a/include/pqxx/strconv.hxx
 +++ b/include/pqxx/strconv.hxx
 @@ -69,7 +69,7 @@ namespace pqxx
@@ -7,7 +7,7 @@ index a033a7f0..29526f95 100644
  {
    /// Does this type have a null value?
 -  static bool has_null;
-+  static constexpr bool has_null;
++  static constexpr bool has_null = false;
  
    /// Is this type always null?
    /** This is only the case for a few types, such as `std::nullptr_t`. */
