@@ -1,0 +1,17 @@
+--- a/include/pqxx/strconv.hxx
++++ b/include/pqxx/strconv.hxx
+@@ -68,7 +68,12 @@ namespace pqxx
+  */
+ template<typename TYPE, typename ENABLE = void> struct nullness final
+ {
+-  /// Does this type have a null value?
+-  static bool has_null;
++  /// Does this type have a null value?
++  /// MSVC requires this to be constexpr so that has_null<T>() can be
++  /// evaluated as a constant expression in `if constexpr` and concept
++  /// constraints (e.g. C7608: atomic constraint should be a constant
++  /// expression).
++  static constexpr bool has_null = false;
+ 
+   /// Is this type always null?
+   /** This is only the case for a few types, such as `std::nullptr_t`. */
