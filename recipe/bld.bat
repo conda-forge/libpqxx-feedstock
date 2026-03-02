@@ -3,8 +3,7 @@
 cmake -S . -B build -G Ninja ^
     %CMAKE_ARGS% ^
     -DCMAKE_CXX_STANDARD=20 ^
-    -DBUILD_SHARED_LIBS=ON ^
-    -DPQXX_HAVE_YEAR_MONTH_DAY=ON
+    -DBUILD_SHARED_LIBS=ON
 if errorlevel 1 exit 1
 
 :: Build.
