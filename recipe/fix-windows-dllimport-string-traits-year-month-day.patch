@@ -1,0 +1,20 @@
+diff --git a/include/pqxx/time.hxx b/include/pqxx/time.hxx
+index db55acce..9f8face7 100644
+--- a/include/pqxx/time.hxx
++++ b/include/pqxx/time.hxx
+@@ -57,12 +57,12 @@ struct nullness<std::chrono::year_month_day> final
+  * be -542 in C++.
+  */
+ template<>
+-struct PQXX_LIBEXPORT string_traits<std::chrono::year_month_day> final
++struct string_traits<std::chrono::year_month_day> final
+ {
+-  [[nodiscard]] static std::string_view to_buf(
++  [[nodiscard]] PQXX_LIBEXPORT static std::string_view to_buf(
+     std::span<char> buf, std::chrono::year_month_day const &value, ctx c = {});
+ 
+-  [[nodiscard]] static std::chrono::year_month_day
++  [[nodiscard]] PQXX_LIBEXPORT static std::chrono::year_month_day
+   from_string(std::string_view text, sl = sl::current());
+ 
+   [[nodiscard]] static std::size_t
