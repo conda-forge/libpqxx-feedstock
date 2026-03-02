@@ -8,9 +8,6 @@ package:
 source:
   url: https://github.com/jtv/{{ name }}/archive/{{ version }}.tar.gz
   sha256: f467c8133b31941324e40eb21f05db0b52e0fcfa070fd1a08490967c1f129977
-  patches:
-    - fix-has_null-constexpr.patch
-    - fix-cmake-try_compile-cxx20-year_month_day.patch
 
 build:
   number: 0
