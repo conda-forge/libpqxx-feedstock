@@ -25,7 +25,6 @@ requirements:
     - ninja
   host:
     - libpq
-  run:
 
 test:
   commands:
