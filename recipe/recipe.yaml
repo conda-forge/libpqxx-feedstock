@@ -1,54 +1,64 @@
-{% set name = "libpqxx" %}
-{% set version = "8.0.0" %}
+schema_version: 1
+
+context:
+  name: libpqxx
+  version: 8.0.0
 
 package:
-  name: {{ name }}
-  version: {{ version }}
+  name: ${{ name }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/jtv/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/jtv/${{ name }}/archive/${{ version }}.tar.gz
   sha256: f467c8133b31941324e40eb21f05db0b52e0fcfa070fd1a08490967c1f129977
   patches:
     - fix-has_null-constexpr.patch
 
 build:
-  number: 0
-  run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x') }}
+  number: 1
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
     - cmake
     - ninja
   host:
     - libpq
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x.x') }}
 
-test:
-  commands:
-    - test -f ${PREFIX}/include/pqxx/pqxx               # [unix]
-    - test -f ${PREFIX}/lib/libpqxx${SHLIB_EXT}         # [unix]
-    - if not exist %LIBRARY_INC%\pqxx\pqxx (exit 1)     # [win]
-    - if not exist %LIBRARY_LIB%\pqxx.lib (exit 1)      # [win]
-    - if not exist %LIBRARY_BIN%\pqxx.dll (exit 1)      # [win]
+tests:
+  - script:
+      - if: unix
+        then: test -f ${PREFIX}/include/pqxx/pqxx
+      - if: unix
+        then: test -f ${PREFIX}/lib/libpqxx${SHLIB_EXT}
+      - if: win
+        then: if not exist %LIBRARY_INC%\pqxx\pqxx (exit 1)
+      - if: win
+        then: if not exist %LIBRARY_LIB%\pqxx.lib (exit 1)
+      - if: win
+        then: if not exist %LIBRARY_BIN%\pqxx.dll (exit 1)
 
 about:
-  home: https://pqxx.org/libpqxx
-  dev_url: https://github.com/jtv/libpqxx
-  doc_url: https://libpqxx.readthedocs.io
   license: BSD-3-Clause
   license_file: COPYING
   summary: The official C++ client API for PostgreSQL
   description: |
     libpqxx is a C++ client API for PostgreSQL, the enterprise-strength open-source relational database. (If "PostgreSQL" is too verbose, call it by its shorter name, postgres).
-    
+
     If you are writing software in C++ that needs to access databases managed by postgres —on just about any platform— then libpqxx is the library you use.
-    
+
     The source code for libpqxx is available under the BSD license, so you're free to download it, pass it on to others, change it, sell it, include it in your own code, and share your changes with anyone you choose. No charge, no catch. Also, no guarantees. :-)
-    
+
     Libpqxx is a wrapper around the C client API, called libpq. But for bulk data retrieval it can actually be faster than libpq. It also provides an easier, more "C++-native" API with advanced language features.
+
+
+  homepage: https://pqxx.org/libpqxx
+  repository: https://github.com/jtv/libpqxx
+  documentation: https://libpqxx.readthedocs.io
 
 extra:
   recipe-maintainers:

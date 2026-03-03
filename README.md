@@ -3,11 +3,23 @@ About libpqxx-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libpqxx-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/jtv/libpqxx
+Home: https://pqxx.org/libpqxx
 
 Package license: BSD-3-Clause
 
-Summary: Welcome to libpqxx, the C++ API to the PostgreSQL database management system.
+Summary: The official C++ client API for PostgreSQL
+
+Development: https://github.com/jtv/libpqxx
+
+Documentation: https://libpqxx.readthedocs.io/
+
+libpqxx is a C++ client API for PostgreSQL, the enterprise-strength open-source relational database. (If "PostgreSQL" is too verbose, call it by its shorter name, postgres).
+
+If you are writing software in C++ that needs to access databases managed by postgres —on just about any platform— then libpqxx is the library you use.
+
+The source code for libpqxx is available under the BSD license, so you're free to download it, pass it on to others, change it, sell it, include it in your own code, and share your changes with anyone you choose. No charge, no catch. Also, no guarantees. :-)
+
+Libpqxx is a wrapper around the C client API, called libpq. But for bulk data retrieval it can actually be faster than libpq. It also provides an easier, more "C++-native" API with advanced language features.
 
 Current build status
 ====================
