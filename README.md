@@ -3,11 +3,23 @@ About libpqxx-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libpqxx-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/jtv/libpqxx
+Home: https://pqxx.org/libpqxx
 
 Package license: BSD-3-Clause
 
-Summary: Welcome to libpqxx, the C++ API to the PostgreSQL database management system.
+Summary: The official C++ client API for PostgreSQL
+
+Development: https://github.com/jtv/libpqxx
+
+Documentation: https://libpqxx.readthedocs.io/
+
+libpqxx is a C++ client API for PostgreSQL, the enterprise-strength open-source relational database. (If "PostgreSQL" is too verbose, call it by its shorter name, postgres).
+
+If you are writing software in C++ that needs to access databases managed by postgres —on just about any platform— then libpqxx is the library you use.
+
+The source code for libpqxx is available under the BSD license, so you're free to download it, pass it on to others, change it, sell it, include it in your own code, and share your changes with anyone you choose. No charge, no catch. Also, no guarantees. :-)
+
+Libpqxx is a wrapper around the C client API, called libpq. But for bulk data retrieval it can actually be faster than libpq. It also provides an easier, more "C++-native" API with advanced language features.
 
 Current build status
 ====================
@@ -152,12 +164,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance,
+To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -184,7 +196,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/libpqxx-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks, and branches in the main repository should only be used to
+on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
