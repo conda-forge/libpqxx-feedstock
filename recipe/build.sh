@@ -1,14 +1,17 @@
 #!/bin/sh
+set exo pipefail
 
-mkdir build
-cd build
+if [[ "${target_platform}" == "linux-"* ]]; then
+  EXTRA_LINKER_FLAGS="-pthread -Wl,-rpath-link,$PREFIX/lib"
+elif [[ "${target_platform}" == "osx-"* ]]; then
+  EXTRA_LINKER_FLAGS="-pthread"
+fi
 
-cmake ${CMAKE_ARGS} .. \
-      -G "Ninja" \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_PREFIX_PATH=$PREFIX \
-      -DCMAKE_INSTALL_PREFIX=$PREFIX \
+cmake -S . -B build -G "Ninja" \
+      ${CMAKE_ARGS} \
+      -DCMAKE_SHARED_LINKER_FLAGS="${CMAKE_SHARED_LINKER_FLAGS} ${EXTRA_LINKER_FLAGS}" \
+      -DCMAKE_EXE_LINKER_FLAGS="${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_LINKER_FLAGS}" \
       -DBUILD_SHARED_LIBS=ON
 
-cmake --build . --config Release
-cmake --build . --config Release --target install
+cmake --build build --parallel ${CPU_COUNT}
+cmake --build build --target install

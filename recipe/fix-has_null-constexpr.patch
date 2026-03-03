@@ -1,0 +1,30 @@
+diff --git a/include/pqxx/strconv.hxx b/include/pqxx/strconv.hxx
+index a033a7f0..8c8b958e 100644
+--- a/include/pqxx/strconv.hxx
++++ b/include/pqxx/strconv.hxx
+@@ -69,7 +69,7 @@ namespace pqxx
+ template<typename TYPE, typename ENABLE = void> struct nullness final
+ {
+   /// Does this type have a null value?
+-  static bool has_null;
++  static constexpr bool has_null = false;
+ 
+   /// Is this type always null?
+   /** This is only the case for a few types, such as `std::nullptr_t`. */
+diff --git a/test/test_strconv.cxx b/test/test_strconv.cxx
+index 1fb57b460..6564f1bff 100644
+--- a/test/test_strconv.cxx
++++ b/test/test_strconv.cxx
+@@ -422,10 +422,12 @@ void test_to_buf_into_buf(pqxx::test::context &tctx)
+   // NOLINTEND(modernize-raw-string-literal)
+   check_write(std::list<std::string_view>{"foo"}, "{\"foo\"}");
+ 
++#if defined(PQXX_HAVE_YEAR_MONTH_DAY)
+   check_write(
+     std::chrono::year_month_day{
+       std::chrono::year{2025}, std::chrono::month{03}, std::chrono::day{01}},
+     "2025-03-01");
++#endif
+ 
+   check_write(
+     pqxx::range<int>{

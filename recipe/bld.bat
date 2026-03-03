@@ -1,23 +1,17 @@
-:: MSVC is preferred.
-set CC=cl.exe
-set CXX=cl.exe
+@echo on
 
-mkdir build
-cd build
-
-cmake ^
-    -G "Ninja" ^
-    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    -DCMAKE_BUILD_TYPE=Release ^
-    -DBUILD_SHARED_LIBS=ON ^
+cmake -S . -B build -G Ninja ^
+    %CMAKE_ARGS% ^
     -DCMAKE_CXX_STANDARD=20 ^
-    %SRC_DIR%
+    -DBUILD_SHARED_LIBS=ON ^
+    -DCMAKE_CXX_FLAGS="/permissive- /Zc:externConstexpr /EHsc" ^
+    -DPQXX_HAVE_YEAR_MONTH_DAY=ON
 if errorlevel 1 exit 1
 
 :: Build.
-cmake --build . --config Release
+cmake --build build --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
 
 :: Install.
-cmake --build . --config Release --target install
+cmake --build build --target install
 if errorlevel 1 exit 1
