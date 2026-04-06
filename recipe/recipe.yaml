@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: libpqxx
-  version: 8.0.0
+  version: "8.0.1"
 
 package:
   name: ${{ name }}
@@ -10,12 +10,12 @@ package:
 
 source:
   url: https://github.com/jtv/${{ name }}/archive/${{ version }}.tar.gz
-  sha256: f467c8133b31941324e40eb21f05db0b52e0fcfa070fd1a08490967c1f129977
+  sha256: 24f878a1b4249035e4b6c07d49351506bf99f88df584d36bf198d58ebf293823
   patches:
     - fix-has_null-constexpr.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -32,16 +32,14 @@ requirements:
 tests:
   - script:
       - if: unix
-        then: test -f ${PREFIX}/include/pqxx/pqxx
-      - if: unix
-        then: test -f ${PREFIX}/lib/libpqxx${SHLIB_EXT}
+        then:
+          - test -f ${PREFIX}/include/pqxx/pqxx
+          - test -f ${PREFIX}/lib/libpqxx${SHLIB_EXT}
       - if: win
-        then: if not exist %LIBRARY_INC%\pqxx\pqxx (exit 1)
-      - if: win
-        then: if not exist %LIBRARY_LIB%\pqxx.lib (exit 1)
-      - if: win
-        then: if not exist %LIBRARY_BIN%\pqxx.dll (exit 1)
-
+        then:
+          - if not exist %LIBRARY_INC%\pqxx\pqxx (exit 1)
+          - if not exist %LIBRARY_LIB%\pqxx.lib (exit 1)
+          - if not exist %LIBRARY_BIN%\pqxx.dll (exit 1)
 about:
   license: BSD-3-Clause
   license_file: COPYING
